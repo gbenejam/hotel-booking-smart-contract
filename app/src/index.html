@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>HotelBooking</title>
+</head>
+
+<body>
+  <div style="float: left; margin-left: 20px;">
+    <h1>HotelBooking</h1>
+    <div>
+      <p>Contract owner: <strong class="owner">...</strong></p>
+      <button onclick="App.getOwner()">Get contract owner</button>
+    </div>
+
+    <div>
+      <h2>Register Hotel</h2>
+      <label for="hotelNameRegister">Hotel name to register</label>
+      <input
+        type="text"
+        id="hotelNameRegister"
+        placeholder="e.g. Hotel California"
+      />
+      <label for="hotelPriceRegister">Base Price for hotel</label>
+      <input
+        type="text"
+        id="hotelPriceRegister"/>
+
+      <button onclick="App.registerHotel()">Register</button>
+      <div id="transactionInfo"></div>
+    </div>
+
+    <div>
+      <h2>Book a Hotel</h2>
+
+      <div>
+        <label for="hotelNameBook">Hotel name</label>
+        <input type="text" id="hotelNameBook"/>
+
+        <label for="roomType">Room type</label>
+        <select id="roomType">
+          <option value="0">Single</option>
+          <option value="1">Double</option>
+          <option value="2">Suite</option>
+        </select>
+
+        <label for="bookingDays">Booking days</label>
+        <input type="number" id="bookingDays"/>
+
+        <button onclick="App.bookHotel()">Book</button>
+
+        <div id="bookedHotel"></div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Estimate Booking Price</h2>
+      <div>
+        <label for="hotelNameEstimate">Hotel name</label>
+        <input type="text" id="hotelNameEstimate"/>
+
+        <label for="roomTypeEstimate">Room type</label>
+        <select id="roomTypeEstimate">
+          <option value="0">Single</option>
+          <option value="1">Double</option>
+          <option value="2">Suite</option>
+        </select>
+
+        <label for="bookingDaysEstimate">Booking days</label>
+        <input type="number" id="bookingDaysEstimate"/>
+
+        <button onclick="App.getEstimatedBookingPrice()">Book</button>
+
+        <div id="estimatedPrice"></div>
+    </div>
+
+    <div>
+      <h2>Get Hotel Bookings</h2>
+      <label for="getBookings">Hotel name</label>
+      <input type="text" id="getBookings"/>
+      <button onclick="App.getHotelBookings()">List</button>
+
+      <div id="bookingsResult"></div>
+    </div>
+    </div>
+
+    <div>
+      <h2>Upload file to IPFS</h2>
+      <label for="hotelNameUpload">Hotel name</label>
+      <input type="text" id="hotelNameUpload"/>
+      <p>Upload File:</p>
+      <input type="file" id="fileInput" />
+      <button onclick="App.uploadFileAndSetHash()">Upload file</button>
+
+      <div id="uploadedFileHash"></div>
+    </div>
+
+    <h2>Download file from IPFS</h2>
+
+    <div>
+      <p>Download File with hash:</p>
+      <input type="text" id="fileDownload" placeholder="Hash to search"/>
+      <button onclick="App.downloadIPFSFile()">Download File</button>
+    </div>
+
+    <div>
+      <h2>Get IPFS Hash</h2>
+      <input type="text" id="hotelNameHash"/>
+      <button onclick="App.getIPFSHash()">GetHash</button>
+      <p id="ipfsHashOutput"></p>
+    </div>
+
+    <h2>IPFS hash to Hexadecimal</h2>
+
+      <label for="hashToHex">Hash to hex</label>
+      <input
+        type="text"
+        id="hash_to_hex"
+        placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
+      />
+
+      <button onclick="App.convertIPFSHashToHex()">Convert</button>
+
+      <p id="status_hash_to_hex"></p>
+      
+      
+      <h2>Hexadecimal to IPFS hash</h2>
+
+      <label for="hexToHash">Hex to hash</label>
+      <input
+        type="text"
+        id="hex_to_hash"
+        placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
+      />
+
+      <button onclick="App.convertHexToIPFSHash()">Convert</button>
+
+      <p id="status_hex_to_hash"></p>
+  </div>
+
+  <div style="float: right; margin-right: 20px; border: 2px solid black; padding: 20px;">
+    <div>
+      <h3>Account information</h3>
+      <p>Address: <span id="accountAddress"></span></p>
+      <p>Balance: <span id="accountBalance"></span></p>
+  </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
